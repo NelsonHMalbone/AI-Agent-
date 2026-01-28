@@ -19,11 +19,14 @@ llm = ChatGoogleGenerativeAI( # takes 3 agruments
     temperature = 0.3 # closer to 0 more determine then creative
 )
 system_prompt = "What Can I Help you with?"
-user_input = "What day is it"
+user_input = "Tell me the best way to manage my time with learning to code"
 prompt = ChatPromptTemplate([
     ("system", system_prompt),
     ("user", user_input)
 ])
 
 chain = prompt | llm | StrOutputParser()
-print(chain)
+
+# chain invoke
+chain_invoke = chain.invoke({"input": user_input})
+print(chain_invoke)
