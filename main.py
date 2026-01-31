@@ -18,6 +18,8 @@ llm = ChatGoogleGenerativeAI( # takes 3 agruments
     google_api_key = gemini_api_key, # just your api key goes here
     temperature = 0.3 # closer to 0 more determine then creative
 )
+
+# running the chain
 system_prompt = "What Can I Help you with?"
 user_input = "Tell me the best way to manage my time with learning to code"
 prompt = ChatPromptTemplate([
@@ -29,4 +31,9 @@ chain = prompt | llm | StrOutputParser()
 
 # chain invoke
 chain_invoke = chain.invoke({"input": user_input})
+
+# extract the text
+# post to api
+
+# check the stat code
 print(chain_invoke)
